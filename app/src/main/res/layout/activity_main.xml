@@ -4,12 +4,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
     <LinearLayout
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        style="@style/mainLinear">
 
         <TextView
             android:layout_width="wrap_content"
@@ -17,6 +12,13 @@
             android:textSize="24sp"
             android:textColor="@color/black"
             android:text="@string/heading"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxHeight="200dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/main"
+            android:scaleType="centerCrop"/>
 
         <EditText
             android:id="@+id/player1"

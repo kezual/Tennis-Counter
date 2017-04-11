@@ -5,38 +5,30 @@
     android:fillViewport="true">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        style="@style/mainLinear">
 
         <LinearLayout
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <TextView
+                style="@style/name"
                 android:id="@+id/firstPlayer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/player1"
-                android:textAlignment="center" />
+                android:text="@string/player1" />
 
             <TextView
+                style="@style/name"
                 android:id="@+id/secondPlayer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/player2"
-                android:textAlignment="center" />
+                android:text="@string/player2" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
+                style="@style/head"
                 android:text="@string/set"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -60,15 +52,12 @@
             </LinearLayout>
         </LinearLayout>
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
+                style="@style/head"
                 android:text="@string/game"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -97,9 +86,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
+                style="@style/head"
                 android:text="@string/points"/>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -126,16 +113,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center">
-            <Button
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="increasePointA"
-                android:text="+"/>
-            <Button
+                android:src="@drawable/ic_add_black_24dp"/>
+            <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="increasePointB"
-                android:text="+"/>
+                android:src="@drawable/ic_add_black_24dp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

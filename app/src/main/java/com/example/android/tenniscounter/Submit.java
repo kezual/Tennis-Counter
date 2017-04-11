@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import static com.example.android.tenniscounter.R.string.game;
+import static com.example.android.tenniscounter.R.string.set;
+
 public class Submit extends AppCompatActivity {
 
     String[] arrayName = new String[2];
@@ -55,38 +58,83 @@ public class Submit extends AppCompatActivity {
                 break;
         }
     }
+
     public void displayGameA(int gameA){
         TextView game = (TextView) findViewById(R.id.gameA);
-        if(gameA <= 6 && gameB < 6){
+        if(gameA < 6 && gameB < 6){
             game.setText(String.valueOf(gameA));
         } else{
-            if ((gameA - gameB) >= 2){
+            if (gameA == 6 && (gameA - gameB) == 1){
+                game.setText(String.valueOf(gameA));
+            } else if (gameA >= 6 && (gameA - gameB) >= 2){
                 setA = setA +1;
                 displaySetA(setA);
                 resetGames();
-            }else{
-                tieBreak();
+            } else if(gameA == 7){
+                setA = setA +1;
+                displaySetA(setA);
+                resetGames();
+            } else{
+                game.setText(String.valueOf(gameB));
             }
         }
     }
-    public void tieBreak(){
 
-    }
     public void displaySetA(int setA){
         TextView set = (TextView) findViewById(R.id.setA);
-        if(setA <= 3){
-            if((setA-setB) == 2){
-                set.setText(String.valueOf(setA));
-                //report
-            } else{
-                set.setText(String.valueOf(setA));
-            }
+        if((setA-setB) == 2){
+            set.setText(String.valueOf(setA));
+            //report
+            resetAll();
+        } else{
+            set.setText(String.valueOf(setA));
         }
     }
 
     public void displayPointB(int pointB){
         TextView point = (TextView) findViewById(R.id.pointB);
-        point.setText(String.valueOf(pointB));
+        switch (pointB){
+            case 1:
+                point.setText(String.valueOf(15));
+                break;
+            case 2:
+                point.setText(String.valueOf(30));
+                break;
+            case 3:
+                point.setText(String.valueOf(40));
+                break;
+        }
+    }
+
+    public void displayGameB(int gameB){
+        TextView game = (TextView) findViewById(R.id.gameB);
+        if(gameB < 6 && gameA < 6){
+            game.setText(String.valueOf(gameB));
+        } else{
+            if (gameB == 6 && (gameB - gameA) == 1){
+                game.setText(String.valueOf(gameB));
+            }else if (gameB >= 6 && (gameB - gameA) >= 2){
+                setB = setB +1;
+                displaySetB(setB);
+                resetGames();
+            }else if(gameB == 7){
+                setB = setB + 1;
+                displaySetB(setB);
+                resetGames();
+            } else {
+                game.setText(String.valueOf(gameB));
+            }
+        }
+    }
+
+    public void displaySetB(int setB){
+        TextView set = (TextView) findViewById(R.id.setB);
+        if((setB + setA) == 3){
+            set.setText(String.valueOf(setB));
+            //report
+        } else{
+            set.setText(String.valueOf(setB));
+        }
     }
 
     public void increasePointA(View v){
@@ -108,7 +156,20 @@ public class Submit extends AppCompatActivity {
     }
     public void increasePointB(View v){
         pointB = pointB + 1;
-        displayPointB(pointB);
+        if(pointB < 4) {
+            displayPointB(pointB);
+        } else{
+            if ((pointB - pointA) == 0){
+                displayPointA(3);
+            }else if((pointB - pointA) == 1){
+                TextView point = (TextView) findViewById(R.id.pointB);
+                point.setText(String.valueOf("Adv"));
+            } else if((pointB - pointA) >= 2){
+                gameB = gameB + 1;
+                displayGameB(gameB);
+                resetPoints();
+            }
+        }
     }
 
     public void resetPoints(){
@@ -126,5 +187,14 @@ public class Submit extends AppCompatActivity {
         gamePlayerA.setText(String.valueOf(gameA));
         TextView gamePlayerB = (TextView) findViewById(R.id.gameB);
         gamePlayerB.setText(String.valueOf(gameB));
+    }
+    public void resetAll(){
+        resetPoints();
+        resetGames();
+        setA = 0;
+        setB = 0;
+    }
+    public void report(String winner){
+
     }
 }
