@@ -14,6 +14,7 @@
             android:layout_height="wrap_content">
 
             <TextView
+                android:id="@+id/firstPlayer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -21,6 +22,7 @@
                 android:textAlignment="center" />
 
             <TextView
+                android:id="@+id/secondPlayer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -41,6 +43,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/setA"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -48,6 +51,7 @@
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/setB"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -71,6 +75,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/gameA"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -78,6 +83,7 @@
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/gameB"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -100,6 +106,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/pointA"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -107,6 +114,7 @@
                     android:textAlignment="center" />
 
                 <TextView
+                    android:id="@+id/pointB"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -121,10 +129,12 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="increasePointA"
                 android:text="+"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="increasePointB"
                 android:text="+"/>
         </LinearLayout>
     </LinearLayout>
