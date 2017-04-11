@@ -84,7 +84,7 @@ public class Submit extends AppCompatActivity {
         TextView set = (TextView) findViewById(R.id.setA);
         if((setA-setB) == 2){
             set.setText(String.valueOf(setA));
-            //report
+            report(arrayName[0]);
             resetAll();
         } else{
             set.setText(String.valueOf(setA));
@@ -131,7 +131,7 @@ public class Submit extends AppCompatActivity {
         TextView set = (TextView) findViewById(R.id.setB);
         if((setB + setA) == 3){
             set.setText(String.valueOf(setB));
-            //report
+            report(arrayName[1]);
         } else{
             set.setText(String.valueOf(setB));
         }
@@ -194,7 +194,14 @@ public class Submit extends AppCompatActivity {
         setA = 0;
         setB = 0;
     }
+    public void resetAll(View v){
+        resetPoints();
+        resetGames();
+        setA = 0;
+        setB = 0;
+    }
     public void report(String winner){
-
+        TextView win = (TextView) findViewById(R.id.report);
+        win.setText("The winner of this year Android Beginner Grand Slam is " + winner);
     }
 }
