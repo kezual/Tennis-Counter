@@ -15,19 +15,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void submit(View v){
-
+        String[] arrayName = new String[2];
         Intent sub = new Intent(this, Submit.class);
         startActivity(sub);
 
         EditText p1 = (EditText) findViewById(R.id.player1);
-        String player1 = p1.getText().toString();
+        arrayName[0] = p1.getText().toString();
 
         EditText p2 = (EditText) findViewById(R.id.player2);
-        String player2 = p1.getText().toString();
+        arrayName[1] = p2.getText().toString();
 
         Intent value = new Intent(this, Submit.class);
-        value.putExtra("player1", player1);
-        value.putExtra("player2", player2);
+        value.putExtra("arrayName", arrayName);
         startActivity(value);
     }
 }
